@@ -5,9 +5,8 @@ import FirstSection from "./FirstSection";
 function Job(props) {
 
 
-    // const propCount = Object.keys(props).length;
 
-    const propEntries = Object.entries(props);
+    const propEntries = Object.entries(props.skillProps);
 
     const skills = propEntries.map(([key, value], index) => (
         <Tag text={value}/>
@@ -19,19 +18,34 @@ function Job(props) {
                 backgroundColor: "white",
                 borderRadius: "10px",
                 boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
-                // marginBottom: "20px",
                 padding: "20px",
                 width: "800px",
                 height: "120px",
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "right",
+                justifyContent: "space-between",
             }}
         >
-            <FirstSection />
-            {skills}
+            <FirstSection
+                cname={props.firstSectionProps.cname}
+                title={props.firstSectionProps.title}
+                postingTime={props.firstSectionProps.postingTime}
+                workTime={props.firstSectionProps.workTime}
+                location={props.firstSectionProps.location}
+                new={props.firstSectionProps.new}
+                featured={props.firstSectionProps.featured}
+            />
+            <div
+                style={{
+                    display: "flex",
+                    alignItems: "center",
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                }}
+            >
+                {skills}
+            </div>
         </div>
-
     );
 }
 

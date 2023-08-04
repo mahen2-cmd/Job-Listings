@@ -6,7 +6,7 @@ import NewTag from "./NewTag";
 import Title from "./Title";
 
 
-function FirstSection() {
+function FirstSection(props) {
     return (
         <div
             style={{
@@ -25,17 +25,22 @@ function FirstSection() {
                     height: "90px",
                     backgroundColor: "white",
                     flexDirection: "row",
-                    justifyContent: "space-between",
+                    justifyContent: "left",
                     display: "flex",
                     alignItems: "center",
                 }}
             >
-                <CompanyName text="Photosnap"/>
-                <NewTag />
-                <FeaturedTag />
+                <CompanyName cname={props.cname} />
+                <div>{props.new && <NewTag />}</div>
+                <div>{props.featured && <FeaturedTag />}</div>
+
             </div>
-            <Title text="Senior Frontend Developer" />
-            <Details prop1="1d ago" prop2="Full Time" prop3="USA only" />
+            <Title title={props.title} />
+            <Details
+                postingTime={props.postingTime}
+                workTime={props.workTime}
+                location={props.location}
+            />
         </div>
     );
 }

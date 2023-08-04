@@ -11,7 +11,7 @@ function Title(props) {
                 fontWeight: "700",
             }}
         >
-            {props.text}
+            {props.title}
         </div>
     );
 }

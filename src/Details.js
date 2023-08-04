@@ -15,7 +15,7 @@ function Details(props) {
                 display: "flex",
             }}
         >
-            <div>{props.prop1}</div>
+            <div>{props.postingTime}</div>
 
             <p
                 style={{
@@ -24,7 +24,7 @@ function Details(props) {
             >
                 .
             </p>
-            <div>{props.prop2}</div>
+            <div>{props.workTime}</div>
             <p
                 style={{
                     paddingBottom: "5px",
@@ -32,9 +32,7 @@ function Details(props) {
             >
                 .
             </p>
-            <div>{props.prop3}</div>
-            {/* {props.prop2}
-            {props.prop3} */}
+            <div>{props.location}</div>
         </div>
     );
 }
