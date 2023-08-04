@@ -1,5 +1,6 @@
 import React from "react";
 import Tag from "./Tag";
+import FirstSection from "./FirstSection";
 
 function Job(props) {
 
@@ -18,7 +19,7 @@ function Job(props) {
                 backgroundColor: "white",
                 borderRadius: "10px",
                 boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
-                marginBottom: "20px",
+                // marginBottom: "20px",
                 padding: "20px",
                 width: "800px",
                 height: "120px",
@@ -27,6 +28,7 @@ function Job(props) {
                 justifyContent: "right",
             }}
         >
+            <FirstSection />
             {skills}
         </div>
 
