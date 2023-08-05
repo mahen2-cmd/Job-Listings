@@ -17,7 +17,7 @@ function Job(props) {
             style={{
                 backgroundColor: "white",
                 borderRadius: "10px",
-                boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.25)",
+                boxShadow: "0px 10px 10px hsl(183,37%,89%)",
                 padding: "20px",
                 width: "800px",
                 height: "120px",
@@ -27,8 +27,6 @@ function Job(props) {
                 marginBottom: "20px",
             }}
         >
-
-
             <FirstSection
                 cname={props.firstSectionProps.cname}
                 title={props.firstSectionProps.title}
