@@ -6,6 +6,7 @@ function Header(){
             style={{
                 height: "120px",
                 backgroundColor: "hsl(180, 29%, 50%)",
+                marginBottom: "30px",
             }}
         >
             <svg
@@ -38,6 +39,7 @@ Z"
                     </g>
                 </g>
             </svg>
+
         </div>
     );
 }

@@ -4,43 +4,59 @@ import CompanyName from "./CompanyName";
 import FeaturedTag from "./FeaturedTag";
 import NewTag from "./NewTag";
 import Title from "./Title";
+import CompanyLogo from "./CompanyLogo";
 
 
 function FirstSection(props) {
+    console.log(props);
     return (
         <div
             style={{
-                width: "200px",
+                width: "280px",
                 height: "60px",
                 backgroundColor: "white",
-                flexDirection: "column",
+                flexDirection: "row",
                 justifyContent: "space-between",
                 alignItems: "left",
                 display: "flex",
             }}
         >
+            <CompanyLogo logoName={props.logoName}/>
             <div
                 style={{
-                    width: "180px",
-                    height: "90px",
+                    width: "200px",
+                    height: "60px",
                     backgroundColor: "white",
-                    flexDirection: "row",
-                    justifyContent: "left",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    alignItems: "left",
                     display: "flex",
-                    alignItems: "center",
                 }}
             >
-                <CompanyName cname={props.cname} />
-                <div>{props.new && <NewTag />}</div>
-                <div>{props.featured && <FeaturedTag />}</div>
+                <div
+                    style={{
+                        width: "180px",
+                        height: "90px",
+                        backgroundColor: "white",
+                        flexDirection: "row",
+                        justifyContent: "left",
+                        display: "flex",
+                        alignItems: "center",
+                        // backgroundColor: "orange",
 
+                    }}
+                >
+                    <CompanyName cname={props.cname} />
+                    <div>{props.new && <NewTag />}</div>
+                    <div>{props.featured && <FeaturedTag />}</div>
+                </div>
+                <Title title={props.title} />
+                <Details
+                    postingTime={props.postingTime}
+                    workTime={props.workTime}
+                    location={props.location}
+                />
             </div>
-            <Title title={props.title} />
-            <Details
-                postingTime={props.postingTime}
-                workTime={props.workTime}
-                location={props.location}
-            />
         </div>
     );
 }

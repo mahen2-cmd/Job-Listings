@@ -4,7 +4,7 @@ function Title(props) {
     return (
         <div
             style={{
-                width: "200px",
+                width: "300px",
                 height: "60px",
                 color: "black",
                 fontSize: "15px",

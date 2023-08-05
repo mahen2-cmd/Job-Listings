@@ -34,8 +34,8 @@ function Tag(props) {
 
 
     const width2 = width + 14; // adjust the factor as needed
-    console.log(width); // output the pixel width of the text
-    console.log(width2); // output the pixel width of the text
+    // console.log(width); // output the pixel width of the text
+    // console.log(width2); // output the pixel width of the text
 
     return (
         <div

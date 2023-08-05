@@ -24,8 +24,11 @@ function Job(props) {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
+                marginBottom: "20px",
             }}
         >
+
+
             <FirstSection
                 cname={props.firstSectionProps.cname}
                 title={props.firstSectionProps.title}
@@ -34,6 +37,7 @@ function Job(props) {
                 location={props.firstSectionProps.location}
                 new={props.firstSectionProps.new}
                 featured={props.firstSectionProps.featured}
+                logoName={props.firstSectionProps.logoName}
             />
             <div
                 style={{
