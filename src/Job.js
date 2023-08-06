@@ -21,7 +21,7 @@ function Job(props) {
         if(!(props.tags.includes(tag)))
             props.addTag(tag);
 
-
+        // console.log(props.tags);
 
         props.filterJobs(tag);
     };

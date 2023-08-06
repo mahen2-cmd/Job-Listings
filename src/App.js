@@ -236,27 +236,49 @@ function App() {
 
             };
 
-
+            // const defaultJobIndexes = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
 
             const filterJobs = (tag) => {
-                let tempShowJobs = [];
-                jobs.forEach((job)=>{
-                        let skills = job[0];
+                let tempShowJobs = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+                // jobs.forEach((job)=>
+                if(showSearchbar)
+                {
+                    tempShowJobs = showJob;
+                }
+
+                for(let i=0; i<jobs.length; i++)
+                {
+                        let skills = jobs[i][0];
                         let checkshowJobs = 0;
+                        // console.log(skills);
+                        // console.log(tags);
                         for (const key in skills) {
                             // console.log(`${key}: ${skills[key]}`);
 
-                            if(skills[key] === tag)
+                            if(tag === skills[key])
                             {
-                                checkshowJobs = 1;
-                                tempShowJobs.push(1);
-                                break;
+                                if(showSearchbar)
+                                {
+
+                                    if(tempShowJobs[i] === 1){
+
+                                        checkshowJobs = 1;
+                                        tempShowJobs[i] = 1;
+                                        break;
+                                    }
+                                }
+                                if(!showSearchbar)
+                                {
+                                    checkshowJobs = 1;
+                                    tempShowJobs[i] = 1;
+                                    break;
+                                }
                             }
                         }
                         if(!checkshowJobs)
-                            tempShowJobs.push(0);
+                            tempShowJobs[i] = 0;
 
-                    });
+                    };
 
                 console.log(tempShowJobs)
                 toggleShowJob(tempShowJobs);
@@ -264,7 +286,17 @@ function App() {
                 };
 
 
-                const filteredJobs = jobs.filter((job, i) => showJob[i] === 1);
+
+            // const addJobs = (tag) => {
+
+
+            // }
+
+
+
+
+
+            const filteredJobs = jobs.filter((job, i) => showJob[i] === 1);
 
 
             return (
@@ -307,87 +339,6 @@ function App() {
                                 filterJobs={filterJobs}
                             />
                         ))}
-{/*
-                        <Job
-                            skillProps={skillProps1}
-                            firstSectionProps={firstSection1}
-                            tags={tags}
-                            addTag={addTag}
-                            toggleSearchbar={toggleSearchbar}
-                            showSearchbar={showSearchbar}
-                        />
-                        <Job
-                            skillProps={skillProps2}
-                            firstSectionProps={firstSection2}
-                            tags={tags}
-                            addTag={addTag}
-                            toggleSearchbar={toggleSearchbar}
-                            showSearchbar={showSearchbar}
-                        />
-                        <Job
-                            skillProps={skillProps3}
-                            firstSectionProps={firstSection3}
-                            tags={tags}
-                            addTag={addTag}
-                            toggleSearchbar={toggleSearchbar}
-                            showSearchbar={showSearchbar}
-                        />
-                        <Job
-                            skillProps={skillProps4}
-                            firstSectionProps={firstSection4}
-                            tags={tags}
-                            addTag={addTag}
-                            toggleSearchbar={toggleSearchbar}
-                            showSearchbar={showSearchbar}
-                        />
-                        <Job
-                            skillProps={skillProps5}
-                            firstSectionProps={firstSection5}
-                            tags={tags}
-                            addTag={addTag}
-                            toggleSearchbar={toggleSearchbar}
-                            showSearchbar={showSearchbar}
-                        />
-                        <Job
-                            skillProps={skillProps6}
-                            firstSectionProps={firstSection6}
-                            tags={tags}
-                            addTag={addTag}
-                            toggleSearchbar={toggleSearchbar}
-                            showSearchbar={showSearchbar}
-                        />
-                        <Job
-                            skillProps={skillProps7}
-                            firstSectionProps={firstSection7}
-                            tags={tags}
-                            addTag={addTag}
-                            toggleSearchbar={toggleSearchbar}
-                            showSearchbar={showSearchbar}
-                        />
-                        <Job
-                            skillProps={skillProps8}
-                            firstSectionProps={firstSection8}
-                            tags={tags}
-                            addTag={addTag}
-                            toggleSearchbar={toggleSearchbar}
-                            showSearchbar={showSearchbar}
-                        />
-                        <Job
-                            skillProps={skillProps9}
-                            firstSectionProps={firstSection9}
-                            tags={tags}
-                            addTag={addTag}
-                            toggleSearchbar={toggleSearchbar}
-                            showSearchbar={showSearchbar}
-                        />
-                        <Job
-                            skillProps={skillProps10}
-                            firstSectionProps={firstSection10}
-                            tags={tags}
-                            addTag={addTag}
-                            toggleSearchbar={toggleSearchbar}
-                            showSearchbar={showSearchbar}
-                        /> */}
                     </div>
                 </div>
             );
