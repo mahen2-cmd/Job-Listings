@@ -1,7 +1,4 @@
 import React from "react";
-
-// import "./SearchTag.css";
-
 import Cross from "./Cross";
 
 function Searchtag(props) {
@@ -13,6 +10,13 @@ function Searchtag(props) {
 
     const width2 = width + 14; // adjust the factor as needed
     const width3 = width2 + 25;
+
+
+    console.log(props);
+
+    function handleClick() {
+        props.removeTag(props.text);
+    }
 
 
     return (
@@ -43,12 +47,7 @@ function Searchtag(props) {
             >
                 {props.text}
             </div>
-
-            <Cross />
-
-
-
-
+            <Cross onClick={handleClick} />
         </div>
     );
 }

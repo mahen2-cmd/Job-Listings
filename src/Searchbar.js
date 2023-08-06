@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useState } from "react";
 import Searchtag from './Searchtag';
 import Clear from './Clear';
 
 function Searchbar() {
+
+    const [tags, setTags] = useState(["Frontend", "CSS", "JavaScript"]);
+
+    const removeTag = (tag) => {
+        console.log("Remove tag called")
+        setTags((prevTags) => prevTags.filter((t) => t !== tag));
+    };
+
+
+
     return (
         <div
             style={{
@@ -25,11 +35,14 @@ function Searchbar() {
                     justifyContent: "left",
                 }}
             >
-                <Searchtag text="Frontend" />
-                <Searchtag text="CSS" />
-                <Searchtag text="JavaScript" />
-            </div>
+                {tags.map((tag) => (
+                    <Searchtag key={tag} text={tag} removeTag={removeTag} />
+                ))}
 
+                {/* <Searchtag text="Frontend" />
+                <Searchtag text="CSS" />
+                <Searchtag text="JavaScript" /> */}
+            </div>
 
             <Clear />
         </div>

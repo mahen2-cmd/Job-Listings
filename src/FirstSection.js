@@ -8,7 +8,7 @@ import CompanyLogo from "./CompanyLogo";
 
 
 function FirstSection(props) {
-    console.log(props);
+    // console.log(props);
     return (
         <div
             style={{
