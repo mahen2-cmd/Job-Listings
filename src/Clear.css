@@ -1,0 +1,10 @@
+.clear {
+    color: hsl(180, 29%, 50%);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.clear:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

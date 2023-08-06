@@ -1,29 +1,7 @@
-// import React from "react";
-
-// function Tag() {
-
-//     <div
-//         style={{
-//             backgroundColor: "hsl(180, 52%, 96%)",
-//             width: "60px",
-//             height: "25px",
-//             borderRadius: "2px",
-//             marginRight: "10px",
-//             color: "hsl(180, 29%, 50%)",
-//             fontSize: "12px",
-//             display: "flex",
-//             alignItems: "center",
-//             justifyContent: "center",
-//             fontWeight: "700",
-//         }}
-//     >
-//         Frontend
-//     </div>;
-// }
-
-// export default Tag;
 
 import React from "react";
+
+import "./Tag.css";
 
 function Tag(props) {
     const canvas = document.createElement("canvas");
@@ -34,24 +12,24 @@ function Tag(props) {
 
 
     const width2 = width + 14; // adjust the factor as needed
-    // console.log(width); // output the pixel width of the text
-    // console.log(width2); // output the pixel width of the text
 
     return (
         <div
             style={{
-                backgroundColor: "hsl(180, 52%, 96%)",
+                // backgroundColor: "hsl(180, 52%, 96%)",
                 width: `${width2}px`,
                 height: "25px",
-                borderRadius: "2px",
-                marginRight: "10px",
-                color: "hsl(180, 29%, 50%)",
-                fontSize: "12px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontWeight: "700",
+                // borderRadius: "2px",
+                // marginRight: "10px",
+                // color: "hsl(180, 29%, 50%)",
+                // fontSize: "12px",
+                // display: "flex",
+                // alignItems: "center",
+                // justifyContent: "center",
+                // fontWeight: "700",
             }}
+
+            className="tag"
         >
             {props.text}
         </div>

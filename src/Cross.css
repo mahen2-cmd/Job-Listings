@@ -1,0 +1,35 @@
+
+.x:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+.x {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    background-color: hsl(180, 29%, 50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 2px 2px 0;
+}
+
+.line {
+    position: absolute;
+    width: 2px;
+    height: 15px;
+    background-color: white;
+    transform-origin: center center;
+}
+
+.line:first-child {
+    transform: rotate(45deg);
+}
+
+.line:last-child {
+    transform: rotate(-45deg);
+}

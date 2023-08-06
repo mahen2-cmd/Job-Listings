@@ -3,6 +3,7 @@ import './App.css';
 import React from 'react'
 import Job from "./Job";
 import Header from "./Header";
+import Searchbar from './Searchbar';
 
 
 
@@ -209,6 +210,7 @@ function App() {
                             marginTop: "500px",
                         }}
                     >
+                        <Searchbar />
                         <Job
                             skillProps={skillProps1}
                             firstSectionProps={firstSection1}
