@@ -10,6 +10,9 @@ function Job(props) {
 
     const handleTagClick = (tag) => {
 
+
+
+
         if(!props.showSearchbar)
             props.toggleSearchbar();
 
@@ -17,6 +20,10 @@ function Job(props) {
 
         if(!(props.tags.includes(tag)))
             props.addTag(tag);
+
+
+
+        props.filterJobs(tag);
     };
 
 

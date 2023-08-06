@@ -1,28 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import Searchtag from './Searchtag';
 import Clear from './Clear';
 
 function Searchbar(props) {
 
-    // const [tags, setTags] = useState(["Frontend", "CSS", "JavaScript"]);
-
-    // const removeTag = (tag) => {
-    //     console.log("Remove tag called")
-    //     setTags((prevTags) => prevTags.filter((t) => t !== tag));
-    // };
-
-
-
-
-
-    // const addTag = (tag) => {
-    //     console.log("Add tag called");
-    //     setTags((prevTags) => [...prevTags, tag]);
-    // };
 
 
     function handleClick() {
         props.toggleSearchbar();
+
+        props.showAllJobs();
     }
 
 

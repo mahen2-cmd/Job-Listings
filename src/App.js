@@ -13,7 +13,6 @@ function App() {
 
 
 
-            // var showSearchbar = 1;
             const [showSearchbar, setShowSearchbar] = useState(0);
             const [tags, setTags] = useState([]);
 
@@ -212,13 +211,65 @@ function App() {
             };
 
 
+            const [jobs, updateJobs] = useState([
+                [skillProps1, firstSection1],
+                [skillProps2, firstSection2],
+                [skillProps3, firstSection3],
+                [skillProps4, firstSection4],
+                [skillProps5, firstSection5],
+                [skillProps6, firstSection6],
+                [skillProps7, firstSection7],
+                [skillProps8, firstSection8],
+                [skillProps9, firstSection9],
+                [skillProps10, firstSection10]
+            ]);
 
+            const [showJob, toggleShowJob] = useState([1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
+
+
+            const showAllJobs = (jobIndex) => {
+
+                let tempShowJobs = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1];
+                // tempShowJobs[jobIndex] = 0;
+
+                toggleShowJob(tempShowJobs);
+
+            };
+
+
+
+            const filterJobs = (tag) => {
+                let tempShowJobs = [];
+                jobs.forEach((job)=>{
+                        let skills = job[0];
+                        let checkshowJobs = 0;
+                        for (const key in skills) {
+                            // console.log(`${key}: ${skills[key]}`);
+
+                            if(skills[key] === tag)
+                            {
+                                checkshowJobs = 1;
+                                tempShowJobs.push(1);
+                                break;
+                            }
+                        }
+                        if(!checkshowJobs)
+                            tempShowJobs.push(0);
+
+                    });
+
+                console.log(tempShowJobs)
+                toggleShowJob(tempShowJobs);
+
+                };
+
+
+                const filteredJobs = jobs.filter((job, i) => showJob[i] === 1);
 
 
             return (
                 <div
                     style={{
-                        // overflow: "scroll",
                         overflowY: "scroll",
                         overflowX: "hidden",
                     }}
@@ -235,11 +286,28 @@ function App() {
                             marginTop: "500px",
                         }}
                     >
-
                         {showSearchbar ? (
-                            <Searchbar tags={tags} removeTag={removeTag} toggleSearchbar={toggleSearchbar} />
+                            <Searchbar
+                                tags={tags}
+                                removeTag={removeTag}
+                                toggleSearchbar={toggleSearchbar}
+                                showAllJobs={showAllJobs}
+                            />
                         ) : null}
 
+
+                        {filteredJobs.map((job) => (
+                            <Job
+                                skillProps={job[0]}
+                                firstSectionProps={job[1]}
+                                tags={tags}
+                                addTag={addTag}
+                                toggleSearchbar={toggleSearchbar}
+                                showSearchbar={showSearchbar}
+                                filterJobs={filterJobs}
+                            />
+                        ))}
+{/*
                         <Job
                             skillProps={skillProps1}
                             firstSectionProps={firstSection1}
@@ -247,7 +315,6 @@ function App() {
                             addTag={addTag}
                             toggleSearchbar={toggleSearchbar}
                             showSearchbar={showSearchbar}
-
                         />
                         <Job
                             skillProps={skillProps2}
@@ -320,7 +387,7 @@ function App() {
                             addTag={addTag}
                             toggleSearchbar={toggleSearchbar}
                             showSearchbar={showSearchbar}
-                        />
+                        /> */}
                     </div>
                 </div>
             );
