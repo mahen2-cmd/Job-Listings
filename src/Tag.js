@@ -15,6 +15,7 @@ function Tag(props) {
 
     return (
         <div
+            onClick={props.onClick}
             style={{
                 // backgroundColor: "hsl(180, 52%, 96%)",
                 width: `${width2}px`,
@@ -28,7 +29,6 @@ function Tag(props) {
                 // justifyContent: "center",
                 // fontWeight: "700",
             }}
-
             className="tag"
         >
             {props.text}

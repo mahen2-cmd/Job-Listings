@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
-import React from 'react'
+import React, {useState} from 'react'
 import Job from "./Job";
 import Header from "./Header";
 import Searchbar from './Searchbar';
@@ -10,6 +10,31 @@ import Searchbar from './Searchbar';
 
 
 function App() {
+
+
+
+            // var showSearchbar = 1;
+            const [showSearchbar, setShowSearchbar] = useState(0);
+            const [tags, setTags] = useState([]);
+
+            const removeTag = (tag) => {
+                console.log("Remove tag called");
+                setTags((prevTags) => prevTags.filter((t) => t !== tag));
+            };
+
+
+
+            const addTag = (tag) => {
+                console.log("Add tag called");
+                setTags((prevTags) => [...prevTags, tag]);
+            };
+
+            const toggleSearchbar = () => {
+                if(showSearchbar)
+                    setTags([]);
+
+                setShowSearchbar(!showSearchbar);
+            };
 
             const skillProps1 = {
                 skill1: "Frontend",
@@ -210,46 +235,91 @@ function App() {
                             marginTop: "500px",
                         }}
                     >
-                        <Searchbar />
+
+                        {showSearchbar ? (
+                            <Searchbar tags={tags} removeTag={removeTag} toggleSearchbar={toggleSearchbar} />
+                        ) : null}
+
                         <Job
                             skillProps={skillProps1}
                             firstSectionProps={firstSection1}
+                            tags={tags}
+                            addTag={addTag}
+                            toggleSearchbar={toggleSearchbar}
+                            showSearchbar={showSearchbar}
+
                         />
                         <Job
                             skillProps={skillProps2}
                             firstSectionProps={firstSection2}
+                            tags={tags}
+                            addTag={addTag}
+                            toggleSearchbar={toggleSearchbar}
+                            showSearchbar={showSearchbar}
                         />
                         <Job
                             skillProps={skillProps3}
                             firstSectionProps={firstSection3}
+                            tags={tags}
+                            addTag={addTag}
+                            toggleSearchbar={toggleSearchbar}
+                            showSearchbar={showSearchbar}
                         />
                         <Job
                             skillProps={skillProps4}
                             firstSectionProps={firstSection4}
+                            tags={tags}
+                            addTag={addTag}
+                            toggleSearchbar={toggleSearchbar}
+                            showSearchbar={showSearchbar}
                         />
                         <Job
                             skillProps={skillProps5}
                             firstSectionProps={firstSection5}
+                            tags={tags}
+                            addTag={addTag}
+                            toggleSearchbar={toggleSearchbar}
+                            showSearchbar={showSearchbar}
                         />
                         <Job
                             skillProps={skillProps6}
                             firstSectionProps={firstSection6}
+                            tags={tags}
+                            addTag={addTag}
+                            toggleSearchbar={toggleSearchbar}
+                            showSearchbar={showSearchbar}
                         />
                         <Job
                             skillProps={skillProps7}
                             firstSectionProps={firstSection7}
+                            tags={tags}
+                            addTag={addTag}
+                            toggleSearchbar={toggleSearchbar}
+                            showSearchbar={showSearchbar}
                         />
                         <Job
                             skillProps={skillProps8}
                             firstSectionProps={firstSection8}
+                            tags={tags}
+                            addTag={addTag}
+                            toggleSearchbar={toggleSearchbar}
+                            showSearchbar={showSearchbar}
                         />
                         <Job
                             skillProps={skillProps9}
                             firstSectionProps={firstSection9}
+                            tags={tags}
+                            addTag={addTag}
+                            toggleSearchbar={toggleSearchbar}
+                            showSearchbar={showSearchbar}
                         />
                         <Job
                             skillProps={skillProps10}
                             firstSectionProps={firstSection10}
+                            tags={tags}
+                            addTag={addTag}
+                            toggleSearchbar={toggleSearchbar}
+                            showSearchbar={showSearchbar}
                         />
                     </div>
                 </div>

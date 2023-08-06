@@ -2,15 +2,28 @@ import React, { useState } from "react";
 import Searchtag from './Searchtag';
 import Clear from './Clear';
 
-function Searchbar() {
+function Searchbar(props) {
 
-    const [tags, setTags] = useState(["Frontend", "CSS", "JavaScript"]);
+    // const [tags, setTags] = useState(["Frontend", "CSS", "JavaScript"]);
 
-    const removeTag = (tag) => {
-        console.log("Remove tag called")
-        setTags((prevTags) => prevTags.filter((t) => t !== tag));
-    };
+    // const removeTag = (tag) => {
+    //     console.log("Remove tag called")
+    //     setTags((prevTags) => prevTags.filter((t) => t !== tag));
+    // };
 
+
+
+
+
+    // const addTag = (tag) => {
+    //     console.log("Add tag called");
+    //     setTags((prevTags) => [...prevTags, tag]);
+    // };
+
+
+    function handleClick() {
+        props.toggleSearchbar();
+    }
 
 
     return (
@@ -35,16 +48,18 @@ function Searchbar() {
                     justifyContent: "left",
                 }}
             >
-                {tags.map((tag) => (
-                    <Searchtag key={tag} text={tag} removeTag={removeTag} />
+                {props.tags.map((tag) => (
+                    <Searchtag
+                        key={tag}
+                        text={tag}
+                        removeTag={props.removeTag}
+                        removeSearchbar
+                    />
                 ))}
 
-                {/* <Searchtag text="Frontend" />
-                <Searchtag text="CSS" />
-                <Searchtag text="JavaScript" /> */}
             </div>
 
-            <Clear />
+            <Clear onClick={handleClick}/>
         </div>
     );
 }

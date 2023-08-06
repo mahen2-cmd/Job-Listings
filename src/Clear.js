@@ -4,7 +4,7 @@ import "./Clear.css";
 
 function Clear(props) {
     return (
-        <div className="clear">
+        <div className="clear" onClick={props.onClick}>
             Clear
         </div>
     );

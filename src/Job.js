@@ -8,8 +8,22 @@ function Job(props) {
 
     const propEntries = Object.entries(props.skillProps);
 
+    const handleTagClick = (tag) => {
+
+        if(!props.showSearchbar)
+            props.toggleSearchbar();
+
+
+
+        if(!(props.tags.includes(tag)))
+            props.addTag(tag);
+    };
+
+
+
+
     const skills = propEntries.map(([key, value], index) => (
-        <Tag text={value}/>
+        <Tag text={value} onClick={() => handleTagClick(value)} />
     ));
 
     return (
